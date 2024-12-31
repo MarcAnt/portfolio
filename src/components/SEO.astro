@@ -1,0 +1,46 @@
+---
+export interface SEOProps {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+  author?: string;
+  ogType?: string;
+  ogImage?: string;
+  ogUrl?: string;
+  twitterCard?: string;
+  twitterSite?: string;
+}
+
+const {
+  title = "Portfolio - Marcos Esqueda",
+  description = "Portfolio website by Marcos Esqueda",
+  keywords = [],
+  author = "Marcos Esqueda",
+  ogType = "website",
+  ogImage = "../assets/profile-picture.jpg",
+  ogUrl = "",
+  twitterCard = "summary_large_image",
+  twitterSite = "@bymarcant",
+} = Astro.props;
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="generator" content={Astro.generator} />
+  <title>Portfolio - Marcos Esqueda {title ? ` - ${title}` : title}</title>
+  <meta name="description" content={description} />
+  <meta name="keywords" content={keywords.join(", ")} />
+  <meta name="author" content={author} />
+  <meta property="og:type" content={ogType} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:url" content={ogUrl} />
+  <meta name="twitter:card" content={twitterCard} />
+  <meta name="twitter:site" content={twitterSite} />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+</head>

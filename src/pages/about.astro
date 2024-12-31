@@ -1,0 +1,221 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FirstClass from "../assets/primera-clase.webp";
+import JSCourse from "../assets/js-course.webp";
+import { Image } from "astro:assets";
+import Certifications from "../components/Certifications/Certifications.astro";
+import ReactIcon from "../assets/icons/ReactIcon.svg";
+import JSIcon from "../assets/icons/JavaScriptIcon.svg";
+import TSIcon from "../assets/icons/TypeScriptIcon.svg";
+import CSSIcon from "../assets/icons/CSSIcon.svg";
+import HTMLIcon from "../assets/icons/HTMLIcon.svg";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const about = {
+  title: t("title.about"),
+  description: t("description.about"),
+  keywords: [
+    "portfolio",
+    "about",
+    "developer",
+    "frontend",
+    "react",
+    "certifications",
+    "javascript",
+    "courses",
+  ],
+};
+---
+
+<Layout title={about.title} description={about.description}>
+  <section class="mx-5 my-10" id="#about">
+    <h2
+      class="text-textDark dark:text-textLight text-xl p-5 my-5 rounded-md
+  dark:bg-lightCard/10 bg-lightCard overflow-hidden relative shadow-inner w-full"
+    >
+      Who am I and What I do?
+    </h2>
+    <p class="text-textDark dark:text-textLight lg:max-w-[90%] mx-auto">
+      Front-End Developer and JavaScript programmer with more than 4 years of
+      experience. In the last 3 years I have specialized in React.js and
+      TypeScript. I focus on web applications, improving performance, ensuring
+      responsiveness, cross-browser compatibility, and improving accessibility.
+    </p>
+
+    <div class="w-full mx-auto flex items-center justify-center gap-9">
+      <div class="relative">
+        <HTMLIcon class={"icon-html w-10 md:w-12"} />
+        <span
+          class="absolute top-0 left-0 html-text hidden bg-darkNavigation rounded-md text-textLight text-sm p-1"
+        >
+          HTML
+        </span>
+      </div>
+
+      <div class="relative">
+        <CSSIcon class={"icon icon-css w-10 md:w-12"} />
+        <span
+          class="absolute top-0 left-2 css-text hidden bg-darkNavigation rounded-md text-textLight text-sm p-1"
+        >
+          CSS
+        </span>
+      </div>
+
+      <div class="relative">
+        <JSIcon class={"icon icon-js w-10 md:w-12"} />
+        <span
+          class="absolute top-0 -left-3 js-text hidden bg-darkNavigation rounded-md text-textLight text-sm p-1"
+        >
+          JavaScript
+        </span>
+      </div>
+
+      <div class="relative">
+        <TSIcon class={"icon icon-ts w-10 md:w-12"} />
+        <span
+          class="absolute top-0 -left-3 ts-text hidden bg-darkNavigation rounded-md text-textLight text-sm p-1"
+        >
+          TypeScript
+        </span>
+      </div>
+
+      <div class="relative">
+        <ReactIcon class={"icon icon-react w-10 md:w-12"} />
+        <span
+          class="absolute top-0 -left-1 react-text hidden bg-darkNavigation rounded-md text-textLight text-sm p-1"
+        >
+          React.js
+        </span>
+      </div>
+    </div>
+
+    <p class="text-textDark dark:text-textLight lg:max-w-[90%] mx-auto">
+      I am currently improving my skills to be full-stack and mobile with React
+      Native.
+    </p>
+  </section>
+  <section id="course-javascript-storyline" class="flex flex-col mx-5 my-10">
+    <h2
+      class="text-textDark dark:text-textLight text-xl p-5 my-5 rounded-md
+  dark:bg-lightCard/10 bg-lightCard overflow-hidden relative shadow-inner w-full"
+    >
+      JavaScript classes for Storyline 360
+    </h2>
+    <p class="text-textDark dark:text-textLight lg:max-w-[90%] mx-auto">
+      In October, I started to teach JavaScript for
+      <a
+        class="text-blueLink"
+        href="https://www.articulate.com/360/storyline/"
+        target="_blank"
+        rel="noreferrer noopener">Storyline 360</a
+      >, which is an e-learning software to build interactive courses. This use
+      an API to work with JavaScript and the
+      <a
+        href="https://gsap.com/core/"
+        target="_blank"
+        class="text-blueLink"
+        rel="noopener noreferrer">GSAP</a
+      > library to create and handle animations with JavaScript. This library helps
+      to improve interactivity in the Storyline 360 presentations.
+    </p>
+    <br />
+    <p class="text-textDark dark:text-textLight lg:max-w-[90%] mx-auto">
+      This is the first time teaching JavaScript and programming, learning in
+      the process and learning how to use Storyline 360.
+      <br />
+      This course is currently in development and from time to time I will be giving
+      more updates about it, both here and on my LinkedIn profile, with a view to
+      creating a future related blog.
+    </p>
+
+    <div class="flex flex-wrap lg:flex-nowrap mx-2 lg:mx-10 gap-5 my-5">
+      <figure
+        class="w-full bg-lightCard dark:bg-navigation rounded-md p-3 pb-10 shadow-inner"
+      >
+        <Image
+          src={FirstClass}
+          class="object-cover h-full rounded-md"
+          alt="javascript course video call"
+          loading={"lazy"}
+        />
+
+        <figcaption
+          class="text-textDark dark:text-textLight text-sm md:text-base py-2"
+        >
+          First JavaScript class, fundamentals.
+        </figcaption>
+      </figure>
+      <figure
+        class="w-full bg-lightCard dark:bg-navigation rounded-md p-3 pb-10 shadow-inner"
+      >
+        <Image
+          src={JSCourse}
+          class="object-cover h-full rounded-md"
+          alt="javascript course presentation"
+          loading={"lazy"}
+        />
+
+        <figcaption
+          class="text-textDark dark:text-textLight text-sm md:text-base py-2"
+        >
+          Content of the JavaScript course.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+  <section id="certifications" class="flex flex-col mx-5 my-10">
+    <h2
+      class="text-textDark dark:text-textLight text-xl p-5 rounded-md
+  dark:bg-lightCard/10 bg-lightCard overflow-hidden relative shadow-inner w-full"
+    >
+      Certifications, courses and others
+    </h2>
+
+    <Certifications />
+  </section>
+</Layout>
+
+<script>
+  import { animate, stagger } from "motion";
+
+  const techStack = ["css", "react", "html", "ts", "js"];
+
+  animate(".icon", { y: 10 }, { delay: stagger(0.1) });
+  animate(".icon-html", { y: 10 });
+
+  const animateHover = (tech: string) => {
+    document
+      .querySelector(`.icon-${tech}`)!
+      .addEventListener("mouseover", () => {
+        animate(`.icon-${tech}`, { y: -10 }, { delay: stagger(0.1) });
+      });
+
+    document
+      .querySelector(`.icon-${tech}`)!
+      .addEventListener("mouseleave", () => {
+        animate(`.icon-${tech}`, { y: 10 });
+      });
+  };
+
+  const addTextToAnimate = (tech: string) => {
+    document
+      .querySelector(`.icon-${tech}`)!
+      .addEventListener("mouseover", () => {
+        animate(`.${tech}-text`, { opacity: 1, display: "block" });
+      });
+
+    document
+      .querySelector(`.icon-${tech}`)!
+      .addEventListener("mouseleave", () => {
+        animate(`.${tech}-text`, { opacity: 0, display: "none" });
+      });
+  };
+
+  techStack.forEach((tech) => {
+    animateHover(tech);
+    addTextToAnimate(tech);
+  });
+</script>

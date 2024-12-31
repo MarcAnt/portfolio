@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import TimeTracker from "./TimeTracker";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const experiences = await getCollection("experiences", (experience) => {
+  if (experience.id?.startsWith(lang)) {
+    return experience.data.experiences;
+  }
+});
+---
+
+<h2 class="mx-5 my-7 dark:text-textLight font-bold text-3xl md:text-4xl">
+  {t("section.experience.title")}
+</h2>
+<section class="flex items-center max-w-[90%] mx-auto my-10" id="experience">
+  <TimeTracker
+    client:only="react"
+    tracks={experiences[0].data.experiences}
+    lang={lang}
+  />
+</section>

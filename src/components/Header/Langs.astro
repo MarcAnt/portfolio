@@ -1,0 +1,21 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const asPath = Astro.url.pathname;
+const isSpanish = asPath.includes("es");
+
+const isAbout = Astro.url.pathname.includes("about");
+---
+
+<div class="flex flex-col">
+  <a
+    href={getRelativeLocaleUrl("en", isAbout ? "/about" : "")}
+    class={`block px-3 py-2 md:py-1 font-bold text-xs text-textLight  bg-langLink ${isSpanish ? "bg-opacity-5" : ""}  md:rounded-tr-lg`}
+    >En</a
+  >
+  <a
+    href={getRelativeLocaleUrl("es", isAbout ? "/about" : "")}
+    class={`block px-3 py-2 md:py-1 font-bold text-xs text-textLight  bg-langLink ${!isSpanish ? "bg-opacity-5" : ""}  md:rounded-br-lg`}
+    >Es</a
+  >
+</div>

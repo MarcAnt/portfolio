@@ -1,0 +1,48 @@
+html {
+  background:
+    url(../assets/noise-light-2.png),
+    linear-gradient(#fefae0, #fcfcfc) fixed;
+}
+
+html.dark {
+  background:
+    url(../assets/noise-light-2.png),
+    linear-gradient(#1c1c1c, #221c1c) fixed;
+}
+
+.dark .nav-links a {
+  color: #fff;
+}
+
+/* Register your custom font family and tell the browser where to find it. */
+@font-face {
+  font-family: "instrument-sans";
+  src: url("/fonts/instrument-sans-latin-400-normal.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "instrument-sans-italic";
+  src: url("/fonts/instrument-sans-latin-400-italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "instrument-sans-bold-italic";
+  src: url("/fonts/instrument-sans-latin-700-italic.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "instrument-sans-bold";
+  src: url("/fonts/instrument-sans-latin-700-normal.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+import me from "../assets/profile-picture.jpg";
+const year = new Date().getFullYear();
+---
+
+<footer class="w-[80%] md:w-full mx-auto my-10">
+  <div class="flex flex-col items-center text-center gap-5">
+    <Image
+      src={me}
+      class={"lg:hidden w-[100px]  rounded-xl "}
+      alt={"Marcos Esqueda black and white portafolio"}
+      loading={"lazy"}
+    />
+
+    <div class="flex gap-2 items-center">
+      <p class="text-textDark dark:text-textLight">
+        {year} - Marcos Esqueda - @bymarcant
+      </p>
+    </div>
+  </div>
+</footer>

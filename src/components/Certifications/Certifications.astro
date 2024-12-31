@@ -1,0 +1,96 @@
+---
+import { getCollection } from "astro:content";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { Image } from "astro:assets";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const certifications = await getCollection("certifications");
+---
+
+<div
+  class="fixed z-50 bg-red-200/30 backdrop-blur-md opacity-0 top-0 left-0 right-0 bottom-0 h-full hidden"
+  aria-labelledby="modal-title"
+  role="dialog"
+  aria-modal="false"
+  id="modal"
+>
+  <button
+    type="button"
+    class="absolute right-5 top-5 text-textDark"
+    title={t("modal.close")}
+    id="close-modal"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="40"
+      height="40"
+      viewBox="0 0 24 24"
+    >
+      <path
+        fill="currentColor"
+        d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-3.4 14L12 13.4L8.4 17L7 15.6l3.6-3.6L7 8.4L8.4 7l3.6 3.6L15.6 7L17 8.4L13.4 12l3.6 3.6z"
+      ></path>
+    </svg>
+  </button>
+  <div
+    class="w-full h-full flex justify-center items-center"
+    id="modal-content"
+  >
+  </div>
+</div>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-4 mx-auto gap-5 w-full mt-5">
+  {
+    certifications.map((cert) => {
+      return (
+        <button
+          type="button"
+          class="open-modal"
+          data-image-url={cert.data.image.url}
+        >
+          <figure class="bg-lightCard dark:bg-navigation rounded-md p-3 shadow-inner">
+            <Image
+              width={200}
+              height={200}
+              src={cert.data.image.url}
+              class={"w-full h-full object-contain rounded-md"}
+              alt={cert.data.image.alt}
+              title={cert.data.image.alt}
+              loading={"lazy"}
+            />
+          </figure>
+        </button>
+      );
+    })
+  }
+</div>
+
+<script>
+  import { animate } from "motion";
+
+  const $modal = document.querySelector("#modal") as HTMLDivElement;
+  const $openModalBtns =
+    document.querySelectorAll<HTMLButtonElement>(".open-modal");
+  const $modalContent = document.querySelector("#modal-content");
+  const $closeModal = document.querySelector("#close-modal");
+
+  $openModalBtns.forEach((modalBtn) => {
+    modalBtn.addEventListener("click", () => {
+      animate($modal, { opacity: 1, display: "block" }, { delay: 0.2 });
+      $modal.ariaModal = "true";
+      const imageUrl = modalBtn.dataset.imageUrl;
+      const image = document.createElement("img");
+      image.classList.add("w-[90%]", "md:w-[70%]", "md:p-10");
+      image.src = imageUrl!.toString();
+      $modalContent?.insertAdjacentElement("afterbegin", image);
+    });
+  });
+
+  $closeModal?.addEventListener("click", () => {
+    animate($modal, { opacity: 0, display: "none" });
+    $modal.ariaModal = "false";
+    $modalContent!.innerHTML = "";
+  });
+</script>

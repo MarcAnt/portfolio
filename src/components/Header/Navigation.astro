@@ -1,0 +1,61 @@
+---
+import Langs from "./Langs.astro";
+import ThemeIcon from "./ThemeIcon.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { getRelativeLocaleUrl } from "astro:i18n";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const isAbout = Astro.url.pathname.includes("about");
+const basePath = lang === "en" ? "" : "/es";
+// md:min-w-min
+---
+
+<nav
+  class="transition-all -translate-y-[10px] opacity-0 w-full xs:min-w-[70%] overflow-x-hidden md:w-auto h-16 md:h-auto pl-2 sm:pl-5 md:pl-0 md:mx-5 dark:border overflow-y-hidden dark:border-textLight dark:border-opacity-5 bg-darkNavigation dark:bg-navigation md:rounded-[0.5rem] flex items-center justify-between gap-2"
+>
+  <a
+    href={isAbout ? basePath + "/#experience" : "#experience"}
+    tabindex="0"
+    class="flex transition duration-300 hover:ease-in-out hover:bg-LinkNavigationTo text-textLight text-center text-sm md:text-base md:mx-3 md:px-3 px-3 rounded py-1"
+    >{t("nav.experience")}</a
+  >
+  <a
+    href={isAbout ? basePath + "/#projects" : "#projects"}
+    tabindex="0"
+    class="flex transition duration-300 hover:ease-in-out hover:bg-LinkNavigationTo text-textLight text-center text-sm md:text-base md:mx-3 md:px-3 px-1.5 rounded py-1"
+    >{t("nav.projects")}</a
+  >
+  <a
+    href={getRelativeLocaleUrl(lang, "/about")}
+    tabindex="0"
+    class="flex transition duration-300 hover:ease-in-out hover:bg-LinkNavigationTo text-textLight text-center text-sm md:text-base md:mx-3 md:px-3 px-1.5 rounded py-1"
+    >{t("nav.about")}</a
+  >
+  <div class="flex justify-end gap-5">
+    <ThemeIcon />
+    <Langs currentLocale={lang} />
+  </div>
+</nav>
+
+<script>
+  import { animate } from "motion";
+
+  document.querySelectorAll("nav a").forEach((link) => {
+    link.addEventListener("click", function () {
+      const targetId = link!.getAttribute("href");
+      if (targetId) {
+        document.querySelector(targetId.slice(1))!.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    });
+  });
+
+  const sequence = [
+    ["nav", { opacity: 1, x: 100 }, { duration: 1, x: { duration: 2 } }],
+  ];
+
+  // animate("nav", { y: 0, opacity: 1 }, { delay: 0.5 });
+  animate("nav", { y: [-10, 0], opacity: 1 }, { delay: 0.5 });
+</script>

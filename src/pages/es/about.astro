@@ -1,0 +1,221 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import FirstClass from "../../assets/primera-clase.webp";
+import JSCourse from "../../assets/js-course.webp";
+import { Image } from "astro:assets";
+import Certifications from "../../components/Certifications/Certifications.astro";
+import ReactIcon from "../../assets/icons/ReactIcon.svg";
+import JSIcon from "../../assets/icons/JavaScriptIcon.svg";
+import TSIcon from "../../assets/icons/TypeScriptIcon.svg";
+import CSSIcon from "../../assets/icons/CSSIcon.svg";
+import HTMLIcon from "../../assets/icons/HTMLIcon.svg";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const about = {
+  title: t("title.about"),
+  description: t("description.about"),
+  keywords: [
+    "portfolio",
+    "about",
+    "developer",
+    "frontend",
+    "react",
+    "certifications",
+    "javascript",
+    "courses",
+  ],
+};
+---
+
+<Layout
+  title={about.title}
+  keywords={about.keywords}
+  description={about.description}
+>
+  <section class="mx-5 my-10" id="about">
+    <h2
+      class="text-textDark dark:text-textLight text-xl p-5 my-5 rounded-md
+  dark:bg-lightCard/10 bg-lightCard overflow-hidden relative shadow-inner w-full"
+    >
+      ¿Quién soy y que hago?
+    </h2>
+    <p class="text-textDark dark:text-textLight lg:max-w-[90%] mx-auto">
+      Front-End Developer y programador JavaScript con más de 4 años de
+      experiencia. En los últimos 3 años me he especializado en React.js y
+      TypeScript. Me enfoco en mejorar el rendimiento, asegurando responsividad,
+      compatibilidad cross-browser, y mejorando la accesibilidad.
+    </p>
+
+    <div class="w-full mx-auto flex items-center justify-center gap-9">
+      <div class="relative">
+        <HTMLIcon class={"icon-html w-12"} />
+        <span
+          class="absolute top-0 left-0 html-text hidden bg-darkNavigation rounded-md text-textLight text-sm p-1"
+        >
+          HTML
+        </span>
+      </div>
+
+      <div class="relative">
+        <CSSIcon class={"icon icon-css w-12"} />
+        <span
+          class="absolute top-0 left-2 css-text hidden bg-darkNavigation rounded-md text-textLight text-sm p-1"
+        >
+          CSS
+        </span>
+      </div>
+
+      <div class="relative">
+        <JSIcon class={"icon icon-js w-12"} />
+        <span
+          class="absolute top-0 -left-3 js-text hidden bg-darkNavigation rounded-md text-textLight text-sm p-1"
+        >
+          JavaScript
+        </span>
+      </div>
+
+      <div class="relative">
+        <TSIcon class={"icon icon-ts w-12"} />
+        <span
+          class="absolute top-0 -left-3 ts-text hidden bg-darkNavigation rounded-md text-textLight text-sm p-1"
+        >
+          TypeScript
+        </span>
+      </div>
+
+      <div class="relative">
+        <ReactIcon class={"icon icon-react w-12"} />
+        <span
+          class="absolute top-0 -left-1 react-text hidden bg-darkNavigation rounded-md text-textLight text-sm p-1"
+        >
+          React.js
+        </span>
+      </div>
+    </div>
+
+    <p class="text-textDark dark:text-textLight lg:max-w-[90%] mx-auto">
+      Actualmente estoy mejorando mis habilidades para ser full-stack y mobile
+      con React Native.
+    </p>
+  </section>
+  <section id="/#course-javascript-storyline" class="flex flex-col mx-5 my-10">
+    <h2
+      class="text-textDark dark:text-textLight text-xl p-5 my-5 rounded-md
+  dark:bg-lightCard/10 bg-lightCard overflow-hidden relative shadow-inner w-full"
+    >
+      Clases de JavaScript orientas a Storyline 360
+    </h2>
+    <p class="text-textDark dark:text-textLight lg:max-w-[90%] mx-auto">
+      En el mes de octubre comencé a impartir clases de JavaScript orientado a
+      <a
+        class="text-blueLink"
+        href="https://www.articulate.com/360/storyline/"
+        target="_blank"
+        rel="noreferrer noopener">Storyline 360</a
+      > un software para crear cursos y recursos para e-learnings. Este software
+      usa una API para poder trabajar con JavaScript y la librería de <a
+        href="https://gsap.com/core/"
+        target="_blank"
+        class="text-blueLink"
+        rel="noopener noreferrer">GSAP</a
+      > para crear animaciones y una mayor interactividad en las presentaciones.
+    </p>
+    <br />
+    <p class="text-textDark dark:text-textLight lg:max-w-[90%] mx-auto">
+      Actualmente es mi primera vez impartiendo clases de JavaScript y
+      programación en la cual estoy aprendiendo en el proceso y también
+      aprendiendo en conjunto, la herramienta de Storline 360 y su interfaz para
+      poder crear dichas animaciones.
+      <br />
+      Este curso aun esta en proceso actualmente, a fecha actualmente y para cada
+      actualización del mismo estaré dando feedback por medio de mi cuenta de LinkedIn
+      o por este medio.
+    </p>
+
+    <div class="flex flex-wrap lg:flex-nowrap mx-10 gap-5 my-5">
+      <figure
+        class="w-full bg-lightCard dark:bg-navigation rounded-md p-5 pb-10 shadow-inner"
+      >
+        <Image
+          src={FirstClass}
+          class="object-cover h-full rounded-md"
+          alt="javascript course video call"
+          loading={"eager"}
+        />
+
+        <figcaption class="text-textDark dark:text-textLight py-2">
+          Primera clase de JavaScript, fundamentos.
+        </figcaption>
+      </figure>
+      <figure
+        class="w-full bg-lightCard dark:bg-navigation rounded-md p-5 pb-10 shadow-inner"
+      >
+        <Image
+          src={JSCourse}
+          class="object-cover h-full rounded-md"
+          alt="javascript course presentation"
+          loading={"eager"}
+        />
+
+        <figcaption class="text-textDark dark:text-textLight py-2">
+          Material usado para la clase y el curso.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+  <section id="/#certifications" class="flex flex-col mx-5 my-10">
+    <h2
+      class="text-textDark dark:text-textLight text-xl p-5 rounded-md
+  dark:bg-lightCard/10 bg-lightCard overflow-hidden relative shadow-inner w-full"
+    >
+      Certificados, cursos y otros
+    </h2>
+
+    <Certifications />
+  </section>
+</Layout>
+
+<script>
+  import { animate, stagger } from "motion";
+
+  const techStack = ["css", "react", "html", "ts", "js"];
+
+  animate(".icon", { y: 10 }, { delay: stagger(0.1) });
+  animate(".icon-html", { y: 10 });
+
+  const animateHover = (tech: string) => {
+    document
+      .querySelector(`.icon-${tech}`)!
+      .addEventListener("mouseover", () => {
+        animate(`.icon-${tech}`, { y: -10 }, { delay: stagger(0.1) });
+      });
+
+    document
+      .querySelector(`.icon-${tech}`)!
+      .addEventListener("mouseleave", () => {
+        animate(`.icon-${tech}`, { y: 10 });
+      });
+  };
+
+  const addTextToAnimate = (tech: string) => {
+    document
+      .querySelector(`.icon-${tech}`)!
+      .addEventListener("mouseover", () => {
+        animate(`.${tech}-text`, { opacity: 1, display: "block" });
+      });
+
+    document
+      .querySelector(`.icon-${tech}`)!
+      .addEventListener("mouseleave", () => {
+        animate(`.${tech}-text`, { opacity: 0, display: "none" });
+      });
+  };
+
+  techStack.forEach((tech) => {
+    animateHover(tech);
+    addTextToAnimate(tech);
+  });
+</script>
