@@ -48,7 +48,7 @@ const certifications = await getCollection("certifications");
         <button
           type="button"
           class="open-modal"
-          data-image-url={cert.data.image.url}
+          data-image-url={cert.data.image.url.src}
         >
           <figure class="bg-lightCard dark:bg-navigation rounded-md p-3 shadow-inner">
             <Image
@@ -81,6 +81,9 @@ const certifications = await getCollection("certifications");
       animate($modal, { opacity: 1, display: "block" }, { delay: 0.2 });
       $modal.ariaModal = "true";
       const imageUrl = modalBtn.dataset.imageUrl;
+
+      console.log(imageUrl);
+
       const image = document.createElement("img");
       image.classList.add("w-[90%]", "md:w-[70%]", "md:p-10");
       image.src = imageUrl!.toString();
