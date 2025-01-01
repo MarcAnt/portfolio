@@ -24,7 +24,7 @@ const TimeTracker = ({ tracks, lang }: Props) => {
 
   return (
     <div className="relative w-full">
-      <div className="w-[0.5px] h-full bg-textMessage absolute"></div>
+      <div className="w-[1px] h-full bg-textMessage absolute"></div>
       {tracks.map((track) => {
         return (
           <div key={track.idTrack}>
