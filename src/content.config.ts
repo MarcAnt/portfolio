@@ -4,31 +4,33 @@ import { glob } from "astro/loaders";
 
 const projects = defineCollection({
   loader: glob({ pattern: "**/[^_]*.md", base: "./src/data/projects" }),
-  schema: z.object({
-    infoName: z.object({
-      url: z.string(),
-      alt: z.string(),
+  schema: ({ image }) =>
+    z.object({
+      infoName: z.object({
+        url: image(),
+        alt: z.string(),
+      }),
+      description: z.string(),
+      urlGithub: z.string().optional(),
+      image: z.object({
+        url: image(),
+        alt: z.string(),
+      }),
+      stack: z.array(z.string()),
     }),
-    description: z.string(),
-    urlGithub: z.string().optional(),
-    image: z.object({
-      url: z.string(),
-      alt: z.string(),
-    }),
-    stack: z.array(z.string()),
-  }),
 });
 
 const certifications = defineCollection({
   loader: glob({ pattern: "**/[^_]*.md", base: "./src/data/certifications" }),
-  schema: z.object({
-    url: z.string().optional(),
-    description: z.string(),
-    image: z.object({
-      url: z.string(),
-      alt: z.string(),
+  schema: ({ image }) =>
+    z.object({
+      url: z.string().optional(),
+      description: z.string(),
+      image: z.object({
+        url: image(),
+        alt: z.string(),
+      }),
     }),
-  }),
 });
 
 const experiences = defineCollection({

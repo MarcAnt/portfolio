@@ -1,23 +1,6 @@
 ---
-type Props = {
-  data: {
-    description: string;
-    infoName: {
-      url: string;
-      alt: string;
-    };
-    image: {
-      url: string;
-      alt: string;
-    };
-    urlGithub?: string;
-    stack: string[];
-  };
-};
-
 import { Image } from "astro:assets";
 import StackIcons from "./StackIcons";
-
 const { data } = Astro.props;
 ---
 
