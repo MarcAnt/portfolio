@@ -3,14 +3,25 @@ import { Image } from "astro:assets";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import PrimeraClase from "../../assets/primera-clase.webp";
 import Certificado from "../../assets/efset-english-level.webp";
-
+import LinkArrow from "../../assets/icons/LinkArrow.svg";
+import { getRelativeLocaleUrl } from "astro:i18n";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<h2 class="mx-5 my-5 dark:text-textLight font-bold text-3xl md:text-4xl">
+<a
+  class="mx-5 my-5 dark:text-textLight font-bold text-3xl md:text-4xl flex underline"
+  href={getRelativeLocaleUrl(lang, "/about")}
+  rel="noopener noreferrer"
+>
   {t("section.about.title")}
-</h2>
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" viewBox="0 0 24 24">
+    <path
+      fill="currentColor"
+      d="M6.189 17.289L5.5 16.6L15.58 6.5H6.289v-1h11v11h-1V7.208z"></path>
+  </svg>
+</a>
 <section
   class="flex mx-5 my-14 rounded-md
   dark:bg-lightCard/10 bg-lightCard overflow-hidden relative shadow-inner"
@@ -24,15 +35,8 @@ const t = useTranslations(lang);
       class="text-textDark dark:text-textLight underline text-center text-sm md:text-base md:max-w-[35%] flex items-center md:pl-5"
     >
       {t("section.about.course")}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="w-[20px]"
-        viewBox="0 0 24 24"
-      >
-        <path
-          fill="currentColor"
-          d="M6.189 17.289L5.5 16.6L15.58 6.5H6.289v-1h11v11h-1V7.208z"></path>
-      </svg>
+
+      <LinkArrow class={"w-5 h-5"} />
     </a>
     <Image
       src={PrimeraClase}
@@ -52,11 +56,7 @@ const t = useTranslations(lang);
       class="text-textDark dark:text-textLight underline text-center flex items-center md:pl-10"
     >
       {t("section.about.certifications")}
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24">
-        <path
-          fill="currentColor"
-          d="M6.189 17.289L5.5 16.6L15.58 6.5H6.289v-1h11v11h-1V7.208z"></path>
-      </svg>
+      <LinkArrow class={"w-5 h-5"} />
     </a>
     <Image
       src={Certificado}

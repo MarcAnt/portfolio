@@ -10,6 +10,7 @@ import TSIcon from "../assets/icons/TypeScriptIcon.svg";
 import CSSIcon from "../assets/icons/CSSIcon.svg";
 import HTMLIcon from "../assets/icons/HTMLIcon.svg";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import Breadcrumb from "../components/Breadcrumb/Breadcrumb.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -31,6 +32,8 @@ const about = {
 ---
 
 <Layout title={about.title} description={about.description}>
+  <Breadcrumb />
+
   <section class="mx-5 my-10" id="#about">
     <h2
       class="text-textDark dark:text-textLight text-xl p-5 my-5 rounded-md

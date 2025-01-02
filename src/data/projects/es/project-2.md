@@ -7,5 +7,5 @@ urlGithub: "https://github.com/MarcAnt/medicos-template"
 image:
   url: "/src/assets/medicos-template.webp"
   alt: "A clinic dashboard application"
-stack: ["react", "typescript", "styledComponents", "material", "chakra"]
+stack: ["React", "Typescript", "Styled Components", "Material UI", "Chakra UI"]
 ---

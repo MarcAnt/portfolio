@@ -7,5 +7,5 @@ urlGithub: "https://github.com/MarcAnt/EHTT"
 image:
   url: "/src/assets/ehtt.webp"
   alt: "Employee’s Happiness Tracking Tool web application"
-stack: ["react", "typescript", "chakra"]
+stack: ["React", "Typescript", "Chakra UI"]
 ---

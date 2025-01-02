@@ -7,11 +7,11 @@ const projects = defineCollection({
   schema: ({ image }) =>
     z.object({
       infoName: z.object({
-        url: image(),
+        url: z.string().url(),
         alt: z.string(),
       }),
       description: z.string(),
-      urlGithub: z.string().optional(),
+      urlGitHub: z.string().optional(),
       image: z.object({
         url: image(),
         alt: z.string(),

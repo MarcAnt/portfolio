@@ -1,8 +1,6 @@
-import { iconSet } from "../../utils/iconSet";
 import { motion } from "motion/react";
-
 type Props = {
-  stack: string[];
+  techs: string[];
 };
 
 const containerVariants = {
@@ -20,15 +18,7 @@ const itemVariants = {
   show: { opacity: 1, y: 0 },
 };
 
-const StackIcons = ({ stack }: Props) => {
-  const replacedIcons = iconSet.filter((icon) => {
-    const isFiltered = stack.includes(icon.alt);
-
-    if (isFiltered) {
-      return icon;
-    }
-  });
-
+const StackTechs = ({ techs }: Props) => {
   return (
     <motion.div
       className="flex items-center flex-wrap gap-3"
@@ -36,21 +26,20 @@ const StackIcons = ({ stack }: Props) => {
       initial="hidden"
       animate="show"
     >
-      {replacedIcons.map((icon) => {
+      {techs.map((tech) => {
         return (
-          <motion.img
+          <motion.span
+            className="text-white border border-LinkNavigationTo text-xs bg-LinkNavigationTo dark:bg-LinkNavigationTo/20 rounded-md w-fit px-2 py-[0.5px]"
             variants={itemVariants}
-            src={icon.url}
-            key={icon.alt}
-            width={20}
-            height={20}
-            alt={icon.alt}
-            loading="lazy"
-          />
+            key={tech}
+            title={tech}
+          >
+            {tech}
+          </motion.span>
         );
       })}
     </motion.div>
   );
 };
 
-export default StackIcons;
+export default StackTechs;

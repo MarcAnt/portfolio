@@ -28,12 +28,13 @@ export const ui = {
     "modal.close": "Close",
     show: "Show more",
     hide: "Hide",
-    "title.main": "Experience and Proyects",
+    "title.main": "Experience and Projects",
     "title.about": "About",
     "description.main":
       "My personal portfolio as a Web front-end developer and projects that I made using React.js and other technologies",
     "description.about":
       "Information about my recent projects and certification for projects as a web developer",
+    "breadcrumb.portfolio": "Portfolio",
   },
   es: {
     "nav.experience": "Experiencia",
@@ -63,6 +64,7 @@ export const ui = {
       "Mi portafolio personal con mi experiencia laboral como desarrollador web y mis proyectos web realizados usando React.js",
     "description.about":
       "Información sobre mis proyectos como desarrollador web y algunos de mi certificados de cursos y estudios",
+    "breadcrumb.portfolio": "Portafolio",
   },
 } as const;
 

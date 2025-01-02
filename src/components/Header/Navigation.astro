@@ -5,10 +5,8 @@ import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import { getRelativeLocaleUrl } from "astro:i18n";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-
 const isAbout = Astro.url.pathname.includes("about");
 const basePath = lang === "en" ? "" : "/es";
-// md:min-w-min
 ---
 
 <nav

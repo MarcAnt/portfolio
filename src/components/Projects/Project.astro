@@ -1,6 +1,31 @@
 ---
 import { Image } from "astro:assets";
-import StackIcons from "./StackIcons";
+import StackTechs from "./StackTechs";
+import LinkArrow from "../../assets/icons/LinkArrow.svg";
+
+type ImageProp = {
+  height: number;
+  width: number;
+  src: string;
+  format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
+};
+
+type Props = {
+  data: {
+    image: {
+      url: ImageProp;
+      alt: string;
+    };
+    infoName: {
+      url: string;
+      alt: string;
+    };
+    description: string;
+    stack: string[];
+    urlGitHub?: string | undefined;
+  };
+};
+
 const { data } = Astro.props;
 ---
 
@@ -11,22 +36,17 @@ const { data } = Astro.props;
       href={data.infoName.url}
       target="_blank"
       rel="noopener"
-      title={data.infoName.url}
+      title={data.infoName.alt}
     >
       {data.infoName.alt}
-
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24">
-        <path
-          fill="currentColor"
-          d="M6.189 17.289L5.5 16.6L15.58 6.5H6.289v-1h11v11h-1V7.208z"></path>
-      </svg>
+      <LinkArrow class={"w-6 h-6"} />
     </a>
 
     {
-      data.urlGithub ? (
+      data.urlGitHub ? (
         <a
           class="text-darkNavigation dark:text-textMessage "
-          href={data.urlGithub}
+          href={data.urlGitHub}
           target="_blank"
           rel="noopener"
           title={data.infoName.alt}
@@ -51,9 +71,7 @@ const { data } = Astro.props;
     class="flex bg-lightCard dark:bg-navigation rounded-md p-3 mb-2 shadow-inner"
   >
     <Image
-      width={200}
-      height={200}
-      class="rounded-lg object-cover w-full h-[200px]"
+      class="aspect-auto w-full rounded-lg object-cover min-h-[200px]"
       src={data.image.url}
       alt={data.image.alt}
       title={data.image.alt}
@@ -64,9 +82,14 @@ const { data } = Astro.props;
   <div
     class="flex flex-col bg-lightCard dark:bg-navigation rounded-md p-3 shadow-inner"
   >
-    <p class="text-xl font-bold dark:text-textLight flex gap-2 mb-3">
-      Stack: <StackIcons client:only="react" stack={data.stack} />
-    </p>
+    <div class="flex gap-2 mb-3">
+      <p class="text-lg font-bold dark:text-textLight">Stack:</p>
+      {
+        data.stack.length ? (
+          <StackTechs client:only="react" techs={data.stack} />
+        ) : null
+      }
+    </div>
     <p class="dark:text-textLight">{data.description}</p>
   </div>
 </div>

@@ -7,5 +7,5 @@ urlGithub: ""
 image:
   url: "/src/assets/grupogg.webp"
   alt: "GrupoGG website"
-stack: ["html", "css", "javascript", "php", "bootstrap"]
+stack: ["HTML", "CSS", "JavaScript", "PHP", "Bootstrap"]
 ---

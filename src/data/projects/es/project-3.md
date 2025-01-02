@@ -7,5 +7,5 @@ urlGithub: "https://github.com/MarcAnt/hackathon-get-on-board"
 image:
   url: "/src/assets/getonboard-clone.webp"
   alt: "Clone de GetOnboard"
-stack: ["react", "typescript", "reactQuery"]
+stack: ["React", "Typescript", "React Query"]
 ---
