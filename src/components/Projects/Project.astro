@@ -71,7 +71,7 @@ const { data } = Astro.props;
     class="flex bg-lightCard dark:bg-navigation rounded-md p-3 mb-2 shadow-inner"
   >
     <Image
-      class="aspect-auto w-full rounded-lg object-cover min-h-[200px]"
+      class="aspect-video w-full rounded-lg object-fill md:h-[200px] lg:h-[300px]"
       src={data.image.url}
       alt={data.image.alt}
       title={data.image.alt}

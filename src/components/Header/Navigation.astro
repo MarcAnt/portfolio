@@ -39,21 +39,5 @@ const basePath = lang === "en" ? "" : "/es";
 <script>
   import { animate } from "motion";
 
-  document.querySelectorAll("nav a").forEach((link) => {
-    link.addEventListener("click", function () {
-      const targetId = link!.getAttribute("href");
-      if (targetId) {
-        document.querySelector(targetId.slice(1))!.scrollIntoView({
-          behavior: "smooth",
-        });
-      }
-    });
-  });
-
-  const sequence = [
-    ["nav", { opacity: 1, x: 100 }, { duration: 1, x: { duration: 2 } }],
-  ];
-
-  // animate("nav", { y: 0, opacity: 1 }, { delay: 0.5 });
   animate("nav", { y: [-10, 0], opacity: 1 }, { delay: 0.5 });
 </script>

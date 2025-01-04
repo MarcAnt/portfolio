@@ -81,9 +81,6 @@ const certifications = await getCollection("certifications");
       animate($modal, { opacity: 1, display: "block" }, { delay: 0.2 });
       $modal.ariaModal = "true";
       const imageUrl = modalBtn.dataset.imageUrl;
-
-      console.log(imageUrl);
-
       const image = document.createElement("img");
       image.classList.add("w-[90%]", "md:w-[70%]", "md:p-10");
       image.src = imageUrl!.toString();
