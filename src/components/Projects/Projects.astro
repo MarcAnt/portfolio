@@ -32,7 +32,10 @@ const projects = await getCollection("projects", (project) => {
 <h2 class="mx-5 dark:text-textLight font-bold text-3xl md:text-4xl">
   {t("section.project.title")}#
 </h2>
-<section class="grid grid-cols-1 md:grid-cols-2 gap-3 my-10 mx-5" id="projects">
+<section
+  class="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-8 my-10 mx-5"
+  id="projects"
+>
   {
     projects.map((project) => {
       return <Project data={project.data} />;
