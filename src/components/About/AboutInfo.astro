@@ -1,69 +1,164 @@
 ---
 import { Image } from "astro:assets";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
-import PrimeraClase from "../../assets/primera-clase.webp";
+import PrimeraClase from "../../assets/JS.webp";
 import Certificado from "../../assets/efset-english-level.webp";
 import LinkArrow from "../../assets/icons/LinkArrow.svg";
+import FirstClass from "../../assets/primera-clase.webp";
+import JSCourse from "../../assets/js-course.webp";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import Certifications from "../Certifications/Certifications.astro";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<a
-  class="mx-5 my-5 dark:text-textLight font-bold text-3xl md:text-4xl flex underline"
-  href={getRelativeLocaleUrl(lang, "/about")}
-  rel="noopener noreferrer"
+<h2
+  class="mx-5 my-5 w-fit dark:text-textLight font-bold text-3xl md:text-4xl flex"
 >
   {t("section.about.title")}
-
-  <svg xmlns="http://www.w3.org/2000/svg" width="40" viewBox="0 0 24 24">
-    <path
-      fill="currentColor"
-      d="M6.189 17.289L5.5 16.6L15.58 6.5H6.289v-1h11v11h-1V7.208z"></path>
-  </svg>
-</a>
-<section
-  class="flex mx-5 my-14 rounded-md
-  dark:bg-lightCard/10 bg-lightCard overflow-hidden relative shadow-inner"
-  id="about"
->
+</h2>
+<section class="flex flex-col mx-5 my-14" id="about">
   <div
-    class="w-[50%] flex items-center justify-center md:justify-between about-courses overflow-hidden"
+    class="flex dark:bg-lightCard/10 bg-lightCard rounded-md
+  overflow-hidden relative shadow-inner"
   >
-    <a
-      href="about/#course-javascript-storyline"
-      class="text-textDark dark:text-textLight underline text-center text-sm md:text-base md:max-w-[35%] flex items-center md:pl-5"
+    <div
+      class="w-[50%] flex items-center justify-center md:justify-between about-courses overflow-hidden"
     >
-      {t("section.about.course")}
+      <a
+        href="#course-javascript-storyline"
+        class="text-textDark dark:text-textLight text-center text-sm md:text-base md:max-w-[35%] flex items-center md:pl-5 w-full"
+      >
+        {t("section.about.course")}
 
-      <LinkArrow class={"w-5 h-5"} />
-    </a>
-    <Image
-      src={PrimeraClase}
-      class={"hidden md:block w-[50%] h-full"}
-      alt={"A video call giving a JavaScript course"}
-      loading={"eager"}
-    />
+        <!-- <LinkArrow class={"w-5 h-5"} /> -->
+      </a>
+      <Image
+        src={PrimeraClase}
+        class={"hidden md:block w-[60%] h-full shadow-lg"}
+        alt={"A video call giving a JavaScript course"}
+        loading={"eager"}
+      />
+    </div>
+
+    <div class="bg-textLight w-[2px]"></div>
+
+    <div
+      class="w-[50%] flex justify-center py-5 md:py-0 md:justify-between items-center about-certification"
+    >
+      <a
+        href="#certifications"
+        class="text-textDark dark:text-textLight text-center flex items-center md:pl-10"
+      >
+        {t("section.about.certifications")}
+        <!-- <LinkArrow class={"w-5 h-5"} /> -->
+      </a>
+      <Image
+        src={Certificado}
+        class={"hidden md:block w-[60%] h-full shadow-lg"}
+        alt={"A video call giving a JavaScript course"}
+        loading={"eager"}
+      />
+    </div>
   </div>
 
-  <div class="bg-textLight w-[2px]"></div>
-
-  <div
-    class="w-[50%] flex justify-center py-5 md:py-0 md:justify-between items-center about-certification"
-  >
-    <a
-      href="about/#certifications"
-      class="text-textDark dark:text-textLight underline text-center flex items-center md:pl-10"
+  <div class="mx-5 my-10" id="#about">
+    <h3
+      class="text-textDark dark:text-textLight text-xl p-5 my-5 rounded-md
+  dark:bg-lightCard/10 bg-lightCard overflow-hidden relative shadow-inner w-full"
     >
-      {t("section.about.certifications")}
-      <LinkArrow class={"w-5 h-5"} />
-    </a>
-    <Image
-      src={Certificado}
-      class={"hidden md:block w-[50%] h-full"}
-      alt={"A video call giving a JavaScript course"}
-      loading={"eager"}
-    />
+      Who am I and What I do?
+    </h3>
+    <p class="text-textDark dark:text-textLight lg:max-w-[90%] mx-auto">
+      Front-End Developer and JavaScript programmer with more than 4 years of
+      experience. In the last 3 years I have specialized in React.js and
+      TypeScript. I focus on web applications, improving performance, ensuring
+      responsiveness, cross-browser compatibility, and improving accessibility.
+    </p>
+
+    <p class="text-textDark dark:text-textLight lg:max-w-[90%] mx-auto">
+      I am currently improving my skills to be full-stack and mobile with React
+      Native.
+    </p>
+  </div>
+  <div id="course-javascript-storyline" class="flex flex-col mx-5 my-10">
+    <h3
+      class="text-textDark dark:text-textLight text-xl p-5 my-5 rounded-md
+  dark:bg-lightCard/10 bg-lightCard overflow-hidden relative shadow-inner w-full"
+    >
+      JavaScript classes for Storyline 360
+    </h3>
+    <p class="text-textDark dark:text-textLight lg:max-w-[90%] mx-auto">
+      In October, I started to teach JavaScript for
+      <a
+        class="text-blueLink"
+        href="https://www.articulate.com/360/storyline/"
+        target="_blank"
+        rel="noreferrer noopener">Storyline 360</a
+      >, which is an e-learning software to build interactive courses. This use
+      an API to work with JavaScript and the
+      <a
+        href="https://gsap.com/core/"
+        target="_blank"
+        class="text-blueLink"
+        rel="noopener noreferrer">GSAP</a
+      > library to create and handle animations with JavaScript. This library helps
+      to improve interactivity in the Storyline 360 presentations.
+    </p>
+    <br />
+    <p class="text-textDark dark:text-textLight lg:max-w-[90%] mx-auto">
+      This is the first time teaching JavaScript and programming, learning in
+      the process and learning how to use Storyline 360.
+      <br />
+      This course is currently in development and from time to time I will be giving
+      more updates about it, both here and on my LinkedIn profile, with a view to
+      creating a future related blog.
+    </p>
+
+    <div class="flex flex-wrap lg:flex-nowrap mx-2 lg:mx-10 gap-5 my-5">
+      <figure
+        class="w-full bg-lightCard dark:bg-navigation rounded-md p-3 pb-10 shadow-inner"
+      >
+        <Image
+          src={FirstClass}
+          class="object-cover h-full rounded-md"
+          alt="javascript course video call"
+          loading={"lazy"}
+        />
+
+        <figcaption
+          class="text-textDark dark:text-textLight text-sm md:text-base py-2"
+        >
+          First JavaScript class, fundamentals.
+        </figcaption>
+      </figure>
+      <figure
+        class="w-full bg-lightCard dark:bg-navigation rounded-md p-3 pb-10 shadow-inner"
+      >
+        <Image
+          src={JSCourse}
+          class="object-cover h-full rounded-md"
+          alt="javascript course presentation"
+          loading={"lazy"}
+        />
+
+        <figcaption
+          class="text-textDark dark:text-textLight text-sm md:text-base py-2"
+        >
+          Content of the JavaScript course.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+  <div id="certifications" class="flex flex-col mx-5 my-10">
+    <h3
+      class="text-textDark dark:text-textLight text-xl p-5 rounded-md
+  dark:bg-lightCard/10 bg-lightCard overflow-hidden relative shadow-inner w-full"
+    >
+      Certifications, courses and others
+    </h3>
+
+    <Certifications />
   </div>
 </section>
 

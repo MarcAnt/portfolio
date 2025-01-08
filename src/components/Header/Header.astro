@@ -2,11 +2,13 @@
 import Navigation from "./Navigation.astro";
 import HeaderMessageAndLinks from "./HeaderMessageAndLinks.astro";
 const isOpenToWork = true;
+
+// class="w-full mt-14 md:py-2 mb-20 flex flex-col-reverse items-center md:flex-row justify-between md:items-start"
 ---
 
 <header
-  class="w-full md:mt-2 md:py-2 mb-20 flex flex-col-reverse items-center md:flex-row justify-between md:items-start"
+  class="w-full md:my-10 mb-20 flex gap-10 items-center flex-col justify-between"
 >
-  <HeaderMessageAndLinks isOpenToWork={isOpenToWork} />
   <Navigation />
+  <HeaderMessageAndLinks isOpenToWork={isOpenToWork} />
 </header>

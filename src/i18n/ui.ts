@@ -9,7 +9,7 @@ export const ui = {
   en: {
     "nav.experience": "Experience",
     "nav.projects": "Projects",
-    "nav.about": "About",
+    "nav.about": "About me",
     "nav.downloadCv": "Download CV",
     "nav.EnglishCv": "English CV",
     "nav.SpanishCv": "Spanish CV",
@@ -17,7 +17,7 @@ export const ui = {
     "nav.me": "I'm",
     "nav.name": "Marcos Esqueda",
     "nav.openToWork": "Open to work!",
-    "section.about.title": "About",
+    "section.about.title": "About me",
     "section.project.title": "Projects",
     "section.about.course": "JavaScript course",
     "section.about.certifications": "My certifications",
@@ -35,11 +35,13 @@ export const ui = {
     "description.about":
       "Information about my recent projects and certification for projects as a web developer",
     "breadcrumb.portfolio": "Portfolio",
+    "translation.option.english": "Translate to English",
+    "translation.option.spanish": "Translate to Spanish",
   },
   es: {
     "nav.experience": "Experiencia",
     "nav.projects": "Proyectos",
-    "nav.about": "Sobre mi",
+    "nav.about": "Sobre mí",
     "nav.downloadCv": "Descargar CV",
     "nav.EnglishCv": "CV Inglés",
     "nav.SpanishCv": "CV Español",
@@ -47,7 +49,7 @@ export const ui = {
     "nav.me": "Soy",
     "nav.name": "Marcos Esqueda",
     "nav.openToWork": "¡Disponible para trabajar!",
-    "section.about.title": "Sobre mi",
+    "section.about.title": "Sobre mí",
     "section.about.course": "Clases de JavaScript",
     "section.about.certifications": "Mis certificados",
     "section.experience.title": "Experiencia",
@@ -59,12 +61,14 @@ export const ui = {
     show: "Mostrar más",
     hide: "Ocultar",
     "title.main": "Portafolio Marcos Esqueda - Experiencia y Proyectos",
-    "title.about": "Sobre mi",
+    "title.about": "Sobre mí",
     "description.main":
       "Mi portafolio personal con mi experiencia laboral como desarrollador web y mis proyectos web realizados usando React.js",
     "description.about":
       "Información sobre mis proyectos como desarrollador web y algunos de mi certificados de cursos y estudios",
     "breadcrumb.portfolio": "Portafolio",
+    "translation.option.english": "Traducir al Inglés",
+    "translation.option.spanish": "Traducir al Español",
   },
 } as const;
 
