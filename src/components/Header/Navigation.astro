@@ -2,7 +2,6 @@
 import Langs from "./Langs.astro";
 import ThemeIcon from "./ThemeIcon.astro";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
-// import { getRelativeLocaleUrl } from "astro:i18n";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const isAbout = Astro.url.pathname.includes("about");
@@ -30,12 +29,6 @@ const basePath = lang === "en" ? "" : "/es";
     class="flex transition duration-300 hover:ease-in-out hover:bg-LinkNavigationTo text-textLight text-center text-sm md:text-base md:mx-3 md:px-3 px-1.5 rounded py-1"
     >{t("nav.about")}</a
   >
-  <!-- <a
-    href={getRelativeLocaleUrl(lang, "/about")}
-    tabindex="0"
-    class="flex transition duration-300 hover:ease-in-out hover:bg-LinkNavigationTo text-textLight text-center text-sm md:text-base md:mx-3 md:px-3 px-1.5 rounded py-1"
-    >{t("nav.about")}</a
-  > -->
 
   <div class="flex justify-end gap-5">
     <ThemeIcon />
@@ -45,6 +38,5 @@ const basePath = lang === "en" ? "" : "/es";
 
 <script>
   import { animate } from "motion";
-
   animate("nav", { y: [-10, 0], opacity: 1 }, { delay: 0.5 });
 </script>

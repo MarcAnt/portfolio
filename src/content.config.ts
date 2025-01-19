@@ -52,6 +52,7 @@ const experiences = defineCollection({
         remote: z.boolean(),
         achievementsTrack: z.array(z.string()),
         whatIDidTrack: z.array(z.string()),
+        isOpen: z.boolean()
       })
     ),
   }),

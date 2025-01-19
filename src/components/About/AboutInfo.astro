@@ -2,117 +2,103 @@
 import { Image } from "astro:assets";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import PrimeraClase from "../../assets/JS.webp";
-import Certificado from "../../assets/efset-english-level.webp";
-import LinkArrow from "../../assets/icons/LinkArrow.svg";
-import FirstClass from "../../assets/primera-clase.webp";
 import JSCourse from "../../assets/js-course.webp";
-import { getRelativeLocaleUrl } from "astro:i18n";
 import Certifications from "../Certifications/Certifications.astro";
+import AnimatedLink from "../AnimatedLink/AnimatedLink";
+import Reviews from "../Reviews/Reviews.astro";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
 <h2
-  class="mx-5 my-5 w-fit dark:text-textLight font-bold text-3xl md:text-4xl flex"
+  class="mx-5 mt-5 mb-2 dark:text-textLight font-bold text-3xl md:text-4xl flex"
 >
   {t("section.about.title")}
 </h2>
-<section class="flex flex-col mx-5 my-14" id="about">
-  <div
-    class="flex dark:bg-lightCard/10 bg-lightCard rounded-md
-  overflow-hidden relative shadow-inner"
-  >
-    <div
-      class="w-[50%] flex items-center justify-center md:justify-between about-courses overflow-hidden"
-    >
-      <a
-        href="#course-javascript-storyline"
-        class="text-textDark dark:text-textLight text-center text-sm md:text-base md:max-w-[35%] flex items-center md:pl-5 w-full"
+<section class="flex flex-col sm:mx-5" id="about">
+  <div class="mx-5">
+    <div class="flex items-center gap-2">
+      <span class="text-textDark dark:text-textLight block">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          viewBox="0 0 24 24"
+          ><g
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            color="currentColor"
+            ><path
+              d="M15.175 22v-1.009A1.007 1.007 0 0 1 16.18 20h.075c1.432-.012 2.662-1.006 2.954-2.388l.01-.052l.52-2.56l.94-.464c.505-.248.756-.373.81-.6c.055-.228-.114-.45-.451-.895l-1.908-2.508c-.19-.25-.285-.374-.335-.506s-.067-.32-.098-.693C18.353 5.227 14.865 2 10.612 2C6.132 2 2.5 5.582 2.5 10c0 2.75 1.407 5.175 3.55 6.615m0 0V22m0-5.385a8 8 0 0 0 2.027.987"
+            ></path><path
+              d="m14 9l.92.793c.387.333.58.5.58.707s-.193.374-.58.707L14 12M7 9l-.92.793c-.387.333-.58.5-.58.707s.193.374.58.707L7 12m4.5-4l-2 5"
+            ></path></g
+          ></svg
+        >
+      </span>
+      <h3
+        class="text-textDark dark:text-textLight font-bold text-base md:text-xl my-5 relative"
+      >
+        {t("section.about.description")}
+      </h3>
+    </div>
+    <p class="text-textDark dark:text-textLight lg:max-w-[90%] mx-auto">
+      {t("section.about.developerInfo")}
+    </p>
+  </div>
+
+  <Reviews />
+
+  <div class="flex flex-col mx-5 my-5">
+    <div class="flex items-center gap-2">
+      <span class="text-textDark dark:text-textLight block">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          viewBox="0 0 256 256"
+          ><path
+            fill="currentColor"
+            d="M216 42H40a14 14 0 0 0-14 14v144a14 14 0 0 0 14 14h13.39a6 6 0 0 0 5.42-3.43a50 50 0 0 1 90.38 0a6 6 0 0 0 5.42 3.43H216a14 14 0 0 0 14-14V56a14 14 0 0 0-14-14M78 144a26 26 0 1 1 26 26a26 26 0 0 1-26-26m140 56a2 2 0 0 1-2 2h-57.73a62.34 62.34 0 0 0-31.48-27.61a38 38 0 1 0-45.58 0A62.34 62.34 0 0 0 49.73 202H40a2 2 0 0 1-2-2V56a2 2 0 0 1 2-2h176a2 2 0 0 1 2 2ZM198 80v96a6 6 0 0 1-6 6h-16a6 6 0 0 1 0-12h10V86H70v10a6 6 0 0 1-12 0V80a6 6 0 0 1 6-6h128a6 6 0 0 1 6 6"
+          ></path></svg
+        >
+      </span>
+
+      <h3
+        class="text-textDark dark:text-textLight font-bold text-base md:text-xl my-5 flex rounded-md w-full"
       >
         {t("section.about.course")}
-
-        <!-- <LinkArrow class={"w-5 h-5"} /> -->
-      </a>
-      <Image
-        src={PrimeraClase}
-        class={"hidden md:block w-[60%] h-full shadow-lg"}
-        alt={"A video call giving a JavaScript course"}
-        loading={"eager"}
-      />
+        <AnimatedLink
+          client:load
+          className="ml-2 flex items-center"
+          href={"https://www.articulate.com/360/storyline/"}
+          >Storyline 360</AnimatedLink
+        >
+      </h3>
     </div>
 
-    <div class="bg-textLight w-[2px]"></div>
+    <p class="text-textDark dark:text-textLight lg:max-w-[90%] mx-auto">
+      <!-- In October, I started to teach JavaScript for Storyline 360,which is an
+      e-learning software to build interactive courses. This use an API to work
+      with JavaScript and the -->
 
-    <div
-      class="w-[50%] flex justify-center py-5 md:py-0 md:justify-between items-center about-certification"
-    >
-      <a
-        href="#certifications"
-        class="text-textDark dark:text-textLight text-center flex items-center md:pl-10"
+      {t("section.about.classInfoOne")}
+
+      <AnimatedLink
+        client:load
+        className="inline"
+        svgClassName="inline"
+        href={"https://gsap.com/core/"}>GSAP</AnimatedLink
       >
-        {t("section.about.certifications")}
-        <!-- <LinkArrow class={"w-5 h-5"} /> -->
-      </a>
-      <Image
-        src={Certificado}
-        class={"hidden md:block w-[60%] h-full shadow-lg"}
-        alt={"A video call giving a JavaScript course"}
-        loading={"eager"}
-      />
-    </div>
-  </div>
-
-  <div class="mx-5 my-10" id="#about">
-    <h3
-      class="text-textDark dark:text-textLight text-xl p-5 my-5 rounded-md
-  dark:bg-lightCard/10 bg-lightCard overflow-hidden relative shadow-inner w-full"
-    >
-      Who am I and What I do?
-    </h3>
-    <p class="text-textDark dark:text-textLight lg:max-w-[90%] mx-auto">
-      Front-End Developer and JavaScript programmer with more than 4 years of
-      experience. In the last 3 years I have specialized in React.js and
-      TypeScript. I focus on web applications, improving performance, ensuring
-      responsiveness, cross-browser compatibility, and improving accessibility.
-    </p>
-
-    <p class="text-textDark dark:text-textLight lg:max-w-[90%] mx-auto">
-      I am currently improving my skills to be full-stack and mobile with React
-      Native.
-    </p>
-  </div>
-  <div id="course-javascript-storyline" class="flex flex-col mx-5 my-10">
-    <h3
-      class="text-textDark dark:text-textLight text-xl p-5 my-5 rounded-md
-  dark:bg-lightCard/10 bg-lightCard overflow-hidden relative shadow-inner w-full"
-    >
-      JavaScript classes for Storyline 360
-    </h3>
-    <p class="text-textDark dark:text-textLight lg:max-w-[90%] mx-auto">
-      In October, I started to teach JavaScript for
-      <a
-        class="text-blueLink"
-        href="https://www.articulate.com/360/storyline/"
-        target="_blank"
-        rel="noreferrer noopener">Storyline 360</a
-      >, which is an e-learning software to build interactive courses. This use
-      an API to work with JavaScript and the
-      <a
-        href="https://gsap.com/core/"
-        target="_blank"
-        class="text-blueLink"
-        rel="noopener noreferrer">GSAP</a
-      > library to create and handle animations with JavaScript. This library helps
-      to improve interactivity in the Storyline 360 presentations.
+      {t("section.about.classInfoTwo")}
     </p>
     <br />
     <p class="text-textDark dark:text-textLight lg:max-w-[90%] mx-auto">
-      This is the first time teaching JavaScript and programming, learning in
-      the process and learning how to use Storyline 360.
+      {t("section.about.classInfoThree")}
       <br />
-      This course is currently in development and from time to time I will be giving
-      more updates about it, both here and on my LinkedIn profile, with a view to
-      creating a future related blog.
     </p>
 
     <div class="flex flex-wrap lg:flex-nowrap mx-2 lg:mx-10 gap-5 my-5">
@@ -120,8 +106,8 @@ const t = useTranslations(lang);
         class="w-full bg-lightCard dark:bg-navigation rounded-md p-3 pb-10 shadow-inner"
       >
         <Image
-          src={FirstClass}
-          class="object-cover h-full rounded-md"
+          src={PrimeraClase}
+          class="object-fill h-full rounded-md"
           alt="javascript course video call"
           loading={"lazy"}
         />
@@ -129,7 +115,7 @@ const t = useTranslations(lang);
         <figcaption
           class="text-textDark dark:text-textLight text-sm md:text-base py-2"
         >
-          First JavaScript class, fundamentals.
+          {t("section.about.classInfoImageFundamentals")}
         </figcaption>
       </figure>
       <figure
@@ -145,18 +131,47 @@ const t = useTranslations(lang);
         <figcaption
           class="text-textDark dark:text-textLight text-sm md:text-base py-2"
         >
-          Content of the JavaScript course.
+          {t("section.about.classInfoImageContent")}
         </figcaption>
       </figure>
     </div>
   </div>
-  <div id="certifications" class="flex flex-col mx-5 my-10">
-    <h3
-      class="text-textDark dark:text-textLight text-xl p-5 rounded-md
-  dark:bg-lightCard/10 bg-lightCard overflow-hidden relative shadow-inner w-full"
-    >
-      Certifications, courses and others
-    </h3>
+
+  <div class="flex flex-col mx-5 my-10">
+    <div class="flex items-center gap-2">
+      <span class="text-textDark dark:text-textLight block">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          viewBox="0 0 36 36"
+          ><path
+            fill="currentColor"
+            d="M32 6H4a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h15l.57-.7l.93-1.14l-.09-.16H4V8h28v8.56a8.4 8.4 0 0 1 2 1.81V8a2 2 0 0 0-2-2"
+            class="clr-i-outline clr-i-outline-path-1"></path><path
+            fill="currentColor"
+            d="M7 12h17v1.6H7z"
+            class="clr-i-outline clr-i-outline-path-2"></path><path
+            fill="currentColor"
+            d="M7 16h11v1.6H7z"
+            class="clr-i-outline clr-i-outline-path-3"></path><path
+            fill="currentColor"
+            d="M7 23h10v1.6H7z"
+            class="clr-i-outline clr-i-outline-path-4"></path><path
+            fill="currentColor"
+            d="M27.46 17.23a6.36 6.36 0 0 0-4.4 11l-1.94 2.37l.9 3.61l3.66-4.46a6.26 6.26 0 0 0 3.55 0l3.66 4.46l.9-3.61l-1.94-2.37a6.36 6.36 0 0 0-4.4-11Zm0 10.68a4.31 4.31 0 1 1 4.37-4.31a4.35 4.35 0 0 1-4.37 4.31"
+            class="clr-i-outline clr-i-outline-path-5"></path><path
+            fill="none"
+            d="M0 0h36v36H0z"></path></svg
+        >
+      </span>
+
+      <h3
+        class="text-textDark dark:text-textLight font-bold text-base md:text-xl w-full"
+      >
+        {t("section.about.certifications")}
+      </h3>
+    </div>
 
     <Certifications />
   </div>

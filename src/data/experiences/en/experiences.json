@@ -12,16 +12,16 @@
       "remote": true,
       "achievementsTrack": [
         "Working with Kanban and Agile methodologies that helped me understand all the process and how to measure my performance developing and achieving my goals in the project",
-        "I built a custom time input component with React and Typescript, that works statelessly and is controlled by state",
-        "Handle dates and time was a challenge in this project",
+        "Built a Time component tailored to the needs of the project meeting specific requirements",
         "Improve my skills working with clean code, how to order a file system for big projects",
-        "Learned how to work with react-hook-form React.js library and zod for forms validation"
+        "Manage dates and times in different formats to collect data in this format necessary for different processes in the application."
       ],
       "whatIDidTrack": [
-        "Chose the libraries that we used to start developing the project",
-        "Created and optimized over 5 reusable components in React.js, contributing to more than 10 dynamic views that significantly improved the overall user experience",
+        "Responsible for the research of the tools based on our needs that delimited this project and that resulted in success at the time of starting the development",
+        "I optimized over 5 reusable components in React.js, contributing to more than 10 dynamic views that significantly improved the overall user experience",
         "Developed a dashboard that handles more than 4 international clients, museums in Spain, events, ticket creation, dates and times management, client list, and more related to culture in Spain and other Clorian client countries"
-      ]
+      ],
+      "isOpen": true
     },
     {
       "id": "2",
@@ -41,7 +41,8 @@
         "Developed and implemented some reusable React.js components for user registration, awards, raffles and enhanced development speed",
         "Improved the user experience over 2 views in the dashboard, separating by functions and refactoring them",
         "Modified and created over 5 React components using React-Bootstrap"
-      ]
+      ],
+      "isOpen": false
     },
     {
       "id": "3",
@@ -54,13 +55,13 @@
       "country": "Peru",
       "remote": true,
       "achievementsTrack": [
-        "Working with React and TypeScript",
-        "Developed the sign in form view for clinic application"
+        "Developed the Sign-in form view for clinic application"
       ],
       "whatIDidTrack": [
-        "Responsible for implementing responsiveness of a design in Figma",
+        "Responsible for implementing responsiveness of a design in Figma and implementing it on the front-end",
         "Created over 2 components with views in the dashboard for the medical scheduling in the clinic with over 1000 customers"
-      ]
+      ],
+      "isOpen": false
     },
     {
       "id": "4",
@@ -80,7 +81,8 @@
         "Crafted multiple views from a Bootstrap 4 Admin Dashboard template reusing features to create custom admin panels for a car rental company in Margarita, Venezuela",
         "Built over 15 views with Blade (Laravel template system) components ready to be used",
         "Used legacy Laravel/PHP PDF print libraries to display reports about rental information, expiration date, type of cars, and payment bills.  Used in the web browser, ensuring cross-browser compatibility"
-      ]
+      ],
+      "isOpen": false
     }
   ]
 }

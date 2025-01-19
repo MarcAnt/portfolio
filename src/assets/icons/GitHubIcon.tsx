@@ -3,6 +3,10 @@
 import type { Variants } from "motion/react";
 import { motion, useAnimation } from "motion/react";
 
+type Props = {
+  className?: string;
+};
+
 const bodyVariants: Variants = {
   normal: {
     opacity: 1,
@@ -48,7 +52,7 @@ const tailVariants: Variants = {
   },
 };
 
-const GithubIcon = () => {
+const GithubIcon = ({ className }: Props) => {
   const bodyControls = useAnimation();
   const tailControls = useAnimation();
 
@@ -65,7 +69,7 @@ const GithubIcon = () => {
 
   return (
     <div
-      className="cursor-pointer select-none p-2 hover:bg-accent rounded-md transition-colors duration-200 flex items-center justify-center"
+      className={`${className} cursor-pointer select-none  hover:bg-accent rounded-md transition-colors duration-200 flex items-center justify-center `}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

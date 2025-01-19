@@ -8,8 +8,10 @@ export default {
         sans: [
           "instrument-sans",
           "instrument-sans-bold",
+
           ...defaultTheme.fontFamily.sans,
         ],
+        "geist-mono": ["geist-mono"],
       },
       colors: {
         navigation: "#d4a3731a",

@@ -1,20 +1,17 @@
 import { motion } from "motion/react";
 import { useEffect, useState, type PropsWithChildren } from "react";
 import { useTranslations } from "../../i18n/utils";
+import { CircleChevronUpIcon } from "../../assets/icons/Chevron";
 
 type Props = {
   onOpen?: (isOpen: boolean) => void;
+  isOpen: boolean;
   lang: "en" | "es";
 } & PropsWithChildren;
 
-const iconVariants = {
-  open: { rotate: 180 },
-  closed: { rotate: 0 },
-};
-
-const Accordion = ({ children, onOpen, lang }: Props) => {
+const Accordion = ({ children, onOpen, isOpen, lang }: Props) => {
   const t = useTranslations(lang);
-  const [toggleOpen, setToggleOpen] = useState(true);
+  const [toggleOpen, setToggleOpen] = useState(isOpen);
   useEffect(() => {
     if (onOpen) onOpen(toggleOpen);
   }, [toggleOpen]);
@@ -23,16 +20,16 @@ const Accordion = ({ children, onOpen, lang }: Props) => {
     <>
       <motion.button
         type="button"
-        className="flex sm:absolute  items-center sm:justify-center right-0"
+        className="flex sm:absolute items-center sm:justify-center right-0 group text-textDark dark:text-textLight "
         title={toggleOpen ? t("hide") : t("show")}
         onClick={() => setToggleOpen((prev) => !prev)}
         initial={false}
         animate={toggleOpen ? "open" : "closed"}
       >
-        <span className="text-textDark dark:text-textLight">
+        <span className=" text-textDark dark:text-textLight opacity-60 transition-opacity ease-in-out group-hover:opacity-100 text-sm">
           {toggleOpen ? t("hide") : t("show")}
         </span>
-        <motion.svg
+        {/* <motion.svg
           variants={iconVariants}
           transition={{ duration: 0.2 }}
           style={{ originY: 0.55 }}
@@ -40,13 +37,18 @@ const Accordion = ({ children, onOpen, lang }: Props) => {
           width="40"
           height="40"
           viewBox="0 0 24 24"
-          className="text-textDark dark:text-textLight"
+          className="text-textDark dark:text-textLight fill-red-300"
         >
-          <path
-            fill="currentColor"
-            d="M11.475 14.475L7.85 10.85q-.075-.075-.112-.162T7.7 10.5q0-.2.138-.35T8.2 10h7.6q.225 0 .363.15t.137.35q0 .05-.15.35l-3.625 3.625q-.125.125-.25.175T12 14.7t-.275-.05t-.25-.175"
-          />
-        </motion.svg>
+
+
+
+         
+        </motion.svg> */}
+        <CircleChevronUpIcon
+          className={
+            "opacity-60 transition-opacity ease-in-out group-hover:opacity-100"
+          }
+        />
       </motion.button>
 
       {toggleOpen ? children : null}

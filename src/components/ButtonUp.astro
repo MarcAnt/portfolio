@@ -1,0 +1,30 @@
+---
+import { ArrowUpIcon } from "../assets/icons/ArrowUpIcon";
+---
+
+<button
+  class="fixed bottom-8 right-5 text-white bg-lightCard hover:text-textDark rounded-md opacity-0 hidden"
+  id="arrow"
+>
+  <ArrowUpIcon client:load />
+</button>
+
+<script>
+  import { scroll, animate } from "motion";
+  const $arrow = document.querySelector("#arrow")!;
+
+  scroll((_, info) => {
+    if (info.y.current > info.y.scrollLength / 4) {
+      animate($arrow, { opacity: 1, display: "block" });
+    } else {
+      animate($arrow, { opacity: 0 });
+    }
+  });
+
+  $arrow.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+</script>

@@ -86,6 +86,13 @@ const certifications = await getCollection("certifications");
       image.src = imageUrl!.toString();
       $modalContent?.insertAdjacentElement("afterbegin", image);
     });
+
+    modalBtn.addEventListener("mouseover", (e) => {
+      animate(modalBtn, { scale: 1.1 }, { delay: 0.1 });
+    });
+    modalBtn.addEventListener("mouseleave", (e) => {
+      animate(modalBtn, { scale: 1 });
+    });
   });
 
   $closeModal?.addEventListener("click", () => {

@@ -11,17 +11,17 @@
       "country": "España",
       "remote": true,
       "achievementsTrack": [
-        "Trabajar con Kanban como metodología Ágil que me ayudo a entender el proceso y como medir mi rendimiento en el desarrollo y alcanzar las metas en mi proyecto",
-        "Construí un componente de tiempo personalizado con React.js y Typescript, que funciona controlado sin estado y con estado",
-        "Manejar fechas y horas fue todo un reto en este proyecto",
+        "Trabajar con Kanban como metodología Ágil que me ayudo a entender el proceso, como medir mi rendimiento en el desarrollo y alcanzar las metas en el proyecto",
+        "Construí un componente de Tiempo ajustado a las necesidades del proyecto cumpliendo con los requisitos específicos",
         "Mejorar en mis habilidades trabajando con clean code y como ordenar y mantener una estructura de carpetas en un proyecto grande",
-        "Aprendí a trabajar con las librerías como react-hook-form y zod para manejar la validaciones de los formularios"
+        "Manejar fechas y horas en distintos formatos para recoger datos en este formato necesario para distintos procesos en la aplicación"
       ],
       "whatIDidTrack": [
-        "Escoger las librerías apropiadas que usamos para comenzar y desarrollar el proyecto",
+        "Encargado de la investigación de las herramientas en base a nuestras necesidades que delimitaron este proyecto y que resultaron con un éxito al momento de comenzar el desarrollo",
         "Desarrollo de un dashboard principal que sería manejado por 4 clients internacionales, museos en España, eventos, creación de tickets, manejo de fechas y horas y listas de clientes",
         "Creé y optimicé más de 5 componentes en React.js, contribuyendo con más de 10 vistas con contenido dinámico mejorando significativamente la experiencia para los usuarios y para el desarrollo"
-      ]
+      ],
+      "isOpen": true
     },
     {
       "id": "2",
@@ -41,7 +41,8 @@
         "Desarrollé e implementé algunos componentes con React.js para el registro de usuarios, premios y rifas mejorando el rendimiento",
         "Mejoré la experiencia de usuario de más de 2 vistas en el administrador separando por funciones y refactorizando los componentes",
         "Modifiqué y creé más de 5 components con React.js y React-Bootstrap"
-      ]
+      ],
+      "isOpen": false
     },
     {
       "id": "3",
@@ -54,13 +55,13 @@
       "country": "Perú",
       "remote": true,
       "achievementsTrack": [
-        "Trabajar usando React y TypeScript",
         "Desarrollar la vista para el inicio de sesión para la aplicación de la clínica"
       ],
       "whatIDidTrack": [
         "Responsable por implementar responsividad desde un diseño hecho en Figma",
         "Cree más de 2 componentes para un de las vistas en el panel administrador de calendario médico para mas de 1000 clientes"
-      ]
+      ],
+      "isOpen": false
     },
     {
       "id": "4",
@@ -72,15 +73,13 @@
       "positionTrack": "Web Developer",
       "country": "Venezuela",
       "remote": false,
-      "achievementsTrack": [
-        "Primer vez trabajando como desarrollador web en una empresa",
-        "Trabajar con JavaScript y PHP (usando plantillas Blade de Laravel)"
-      ],
+      "achievementsTrack": [],
       "whatIDidTrack": [
         "Creadas vistas de una plantilla de Bootstrap 4 Admin Dashboard re-usando algunas características para crear paneles administrativos y formularios para una compañía de renta de automóviles en Margarita, Venezuela",
-        "Construí más de 15 vistas con Blade (sistem de plantillas de Laravel)",
+        "Construí más de 15 vistas con Blade (sistema de plantillas de Laravel)",
         "Usé una librería legacy de Laravel/PHP PDF para crear reportes, mostrando información sobre alquiler de automóviles, su descripción de pago, fecha de expiración, tipo de automóviles, y pagos. Usado para mostrarlo en el navegador, asegurando compatibilidad cross-browser"
-      ]
+      ],
+      "isOpen": false
     }
   ]
 }

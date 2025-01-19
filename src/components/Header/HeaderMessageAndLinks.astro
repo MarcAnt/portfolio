@@ -2,14 +2,12 @@
 import { Image } from "astro:assets";
 import me from "../../assets/profile-picture.jpg";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
-import OpenToWork from "./OpenToWork";
 import Dropdown from "../Dropdown/Dropdown";
 import HandShake from "../../assets/icons/HandShake.svg";
 import { GithubIcon } from "../../assets/icons/GitHubIcon";
 import { LinkedinIcon } from "../../assets/icons/LinkedInIcon";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const { isOpenToWork } = Astro.props;
 ---
 
 <div class="flex my-7">
@@ -20,31 +18,23 @@ const { isOpenToWork } = Astro.props;
       alt={"Marcos Esqueda black and white portafolio"}
       loading={"eager"}
     />
-
-    <!-- {
-      isOpenToWork ? (
-        <OpenToWork
-          client:only="react"
-          text={t("nav.openToWork")}
-          isOpenToWork={isOpenToWork}
-        />
-      ) : null
-    } -->
   </div>
 
   <div class="sm:ml-5 lg:ml-10">
-    <h1
-      class="text-textDark dark:text-textLight text-lg lg:text-base md:my-0 md:mb-[1.9rem] text-center md:text-left"
-    >
-      <span class="flex items-center justify-center md:justify-normal">
-        <HandShake class={"w-8 h-8"} />
+    <div class="md:my-0 md:mb-[1.9rem]" id="developer-description">
+      <span class="flex items-center justify-center lg:justify-normal">
+        <HandShake class={"w-8 h-8"} id={"handshake"} />
       </span>
-      {t("nav.introduce")}
-      <span class="font-bold">{t("nav.name")} <br /> {t("nav.me")}</span>
-      <span class="dark:text-textMessage italic font-bold">
-        Web Developer
-      </span>
-    </h1>
+      <h1
+        class="text-textDark dark:text-textLight text-lg lg:text-base text-center md:text-left"
+      >
+        {t("nav.introduce")}
+        <span class="font-bold">{t("nav.name")} <br /> {t("nav.me")}</span>
+        <span class="dark:text-textMessage italic font-bold">
+          Web Developer
+        </span>
+      </h1>
+    </div>
 
     <div class="flex items-center">
       <Dropdown client:load buttonText={t("nav.downloadCv")}>
@@ -52,7 +42,7 @@ const { isOpenToWork } = Astro.props;
           class="bg-textMessage text-textDark font-bold flex flex-col items-start py-1 text-sm rounded"
         >
           <a
-            href="https://drive.google.com/file/d/1dKI_80--L0NjVSi3qqY6BfmcfKQHSod-/view?usp=sharing"
+            href="https://drive.google.com/file/d/1IZ18fzDoWtG5eqs1rNAHwELhWOgALxg8/view?usp=sharing"
             class="flex w-full py-2 px-2 border-b"
             target="_blank"
             rel="noopener noreferrer"
@@ -72,7 +62,7 @@ const { isOpenToWork } = Astro.props;
             </svg></a
           >
           <a
-            href="https://drive.google.com/file/d/1BEVBqUZZr1A2Ly_TB4eUB8Sz5hhve2bp/view?usp=sharing"
+            href="https://drive.google.com/file/d/1Jjc0lt-v5dh-k-m6IlDPQE0aEmDtJxv9/view?usp=sharing"
             class="flex w-full py-2 px-2"
             target="_blank"
             rel="noopener noreferrer"
@@ -104,18 +94,7 @@ const { isOpenToWork } = Astro.props;
           target="_blank"
           rel="noopener"
         >
-          <!-- <svg
-            aria-label="LinkedIn"
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            viewBox="0 0 24 24"
-            ><path
-              fill="currentColor"
-              d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"
-            ></path></svg
-          > -->
-
-          <GithubIcon client:visible />
+          <GithubIcon client:visible className={"p-2"} />
         </a>
 
         <a
@@ -146,6 +125,10 @@ const { isOpenToWork } = Astro.props;
 
   const $btnDownLoad = document.getElementById("downloadLink");
 
+  const $developerDescription = document.getElementById(
+    "developer-description"
+  );
+
   $btnDownLoad?.addEventListener("mouseover", (e) => {
     e.preventDefault();
 
@@ -164,5 +147,15 @@ const { isOpenToWork } = Astro.props;
 
   $btnDownLoad?.addEventListener("click", (e) => {
     e.preventDefault();
+  });
+
+  $developerDescription?.addEventListener("mouseover", () => {
+    animate(
+      "#handshake",
+      {
+        rotate: ["-10deg", "0deg"],
+      },
+      { type: "spring", bounce: 0.25, duration: 0.25 }
+    );
   });
 </script>

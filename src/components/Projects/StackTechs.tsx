@@ -21,21 +21,22 @@ const itemVariants = {
 const StackTechs = ({ techs }: Props) => {
   return (
     <motion.div
-      className="flex items-center flex-wrap gap-3"
+      className="notranslate flex items-center flex-wrap gap-1"
       variants={containerVariants}
       initial="hidden"
       animate="show"
+      translate="no"
     >
       {techs.map((tech) => {
         return (
-          <motion.span
-            className="text-white border border-LinkNavigationTo text-xs bg-LinkNavigationTo dark:bg-LinkNavigationTo/20 rounded-md w-fit px-2 py-[0.5px]"
+          <motion.code
+            className="text-darkNavigation dark:text-textLight font-semibold  font-mono border border-LinkNavigationTo text-xs bg-LinkNavigationTo/30 dark:bg-LinkNavigationTo/20 rounded-[0.2rem] w-fit px-2 py-[0.5px]"
             variants={itemVariants}
             key={tech}
             title={tech}
           >
             {tech}
-          </motion.span>
+          </motion.code>
         );
       })}
     </motion.div>

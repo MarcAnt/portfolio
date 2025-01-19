@@ -1,21 +1,26 @@
 ---
 import "../styles/global.css";
+
 import { getLangFromUrl } from "../i18n/utils";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header/Header.astro";
 const lang = getLangFromUrl(Astro.url);
 const { title, description, keywords } = Astro.props;
 import SEO from "../components/SEO.astro";
+import ButtonUp from "../components/ButtonUp.astro";
 ---
 
 <!doctype html>
-<html lang={lang} class="scroll-smooth" translate="no">
+<html lang={lang} class="scroll-smooth">
   <SEO title={title} description={description} keywords={keywords} />
-  <body class="mx-auto w-full max-w-screen-xl">
+  <body
+    class="mx-auto w-full max-w-screen-xl selection:bg-lightCard selection:text-textDark relative"
+  >
     <Header />
     <main class="max-w-screen-xl">
       <slot />
     </main>
     <Footer />
+    <ButtonUp />
   </body>
 </html>
