@@ -31,7 +31,7 @@ export const ui = {
     "modal.close": "Close",
     show: "Show",
     hide: "Hide",
-    "title.main": "Portfolio Marcos Esqueda - Experience and Projects",
+    "title.main": "Portfolio Marcos Esqueda - Web Developer",
     "title.about": "About",
     "description.main":
       "My personal portfolio as a Web front-end developer and projects that I made using React.js and other technologies",
@@ -75,7 +75,7 @@ export const ui = {
     "modal.close": "Cerrar",
     show: "Mostrar",
     hide: "Ocultar",
-    "title.main": "Portafolio Marcos Esqueda - Experiencia y Proyectos",
+    "title.main": "Portafolio Marcos Esqueda - Desarrollo Web",
     "title.about": "Sobre mí",
     "description.main":
       "Mi portafolio personal con mi experiencia laboral como desarrollador web y mis proyectos web realizados usando React.js",
