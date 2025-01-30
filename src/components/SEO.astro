@@ -17,8 +17,8 @@ const {
   keywords = [],
   author = "Marcos Esqueda",
   ogType = "website",
-  ogImage = "https://marcosesqueda.dev/_astro/profile-picture.2yKnXoCE_2qjuQC.webp",
-  // ogImage = "../assets/profile-picture.jpg",
+  // ogImage = "https://marcosesqueda.dev/_astro/profile-picture.2yKnXoCE_2qjuQC.webp",
+  ogImage = "../assets/profile.webp",
   ogUrl = "",
   twitterCard = "summary_large_image",
   twitterSite = "@bymarcant",
@@ -30,7 +30,7 @@ const {
   <meta name="viewport" content="width=device-width" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <meta name="generator" content={Astro.generator} />
-  <title>Portfolio - Marcos Esqueda {title ? ` - ${title}` : title}</title>
+  <title>{title ? `${title}` : "Marcos Esqueda - Web Developer"}</title>
   <meta name="description" content={description} />
   <meta name="keywords" content={keywords.join(", ")} />
   <meta name="author" content={author} />
